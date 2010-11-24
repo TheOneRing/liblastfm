@@ -5,12 +5,14 @@
 #  LIBFFTW3_LIBRARY
 #  LIBFFTW3_INCLUDE_DIR
 #  LIBFFTW3_FLOAT
+#  LIBFFTW3_LONG
 
 
 find_library(LIBFFTW3_LIBRARY NAMES fftw3 libfftw3)
 find_path(LIBFFTW3_INCLUDE_DIR fftw3.h)
 
-find_path(LIBFFTW3_FLOAT fftw3.f)
+find_library(LIBFFTW3_FLOAT fftw3f libfftw3f)
+find_library(LIBFFTW3_LONG fftw3l libfftw3l)
 
 if(LIBFFTW3_LIBRARY AND LIBFFTW3_INCLUDE_DIR)
     set(LIBFFTW3_FOUND TRUE)
