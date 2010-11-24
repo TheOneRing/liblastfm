@@ -2,10 +2,10 @@
 # Once done this will define
 #
 #  LIBFFTW3_FOUND
-#  LIBFFTW3_LIBRARY
 #  LIBFFTW3_INCLUDE_DIR
-#  LIBFFTW3_FLOAT
-#  LIBFFTW3_LONG
+#  LIBFFTW3_LIBRARY         Use this if you don't care which precision libfftw has
+#  LIBFFTW3_FLOAT           Use this if you need single point precision
+#  LIBFFTW3_LONG            Use this for long double precision
 
 
 find_library(LIBFFTW3_LIBRARY NAMES fftw3 libfftw3)
