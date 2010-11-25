@@ -23,7 +23,7 @@ add_library(lastfm_fingerprint SHARED
 
 target_link_libraries(lastfm_fingerprint
   ${QT_LIBRARIES}
-  ${LIBFFTW3_LIBRARY}
+  ${LIBFFTW3_FLOAT_LIBRARY}
   ${LIBSAMPLERATE_LIBRARY}
   lastfm
 )
