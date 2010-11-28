@@ -17,7 +17,7 @@ find_library(LIBFFTW3_LDOUBLE_LIBRARY fftw3l libfftw3l-3)
 
 if(_LIBFFTW3_LIBRARY AND LIBFFTW3_INCLUDE_DIR)
     set(LIBFFTW3_FOUND TRUE)
-    message(STATUS "Found libfftw3 ${LIBFFTW3_LIBRARY}")
+    message(STATUS "Found libfftw3 ${_LIBFFTW3_LIBRARY}")
 else(_LIBFFTW3_LIBRARY AND LIBFFTW3_PLUGIN_PATH)
     message(STATUS "Could not find libfftw3, get it http://www.fftw.org/")
 endif(_LIBFFTW3_LIBRARY AND LIBFFTW3_INCLUDE_DIR)
