@@ -1,3 +1,7 @@
+# This file is copyrighted under the BSD-license for buildsystem files of KDE
+# copyright 2010, Patrick von Reth <patrick.vonreth@gmail.com>
+#
+#
 # - Try to find the libsamplerate library
 # Once done this will define
 #
