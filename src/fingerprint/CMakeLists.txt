@@ -29,3 +29,9 @@ target_link_libraries(lastfm_fingerprint
 )
 
 set_target_properties(lastfm_fingerprint PROPERTIES COMPILE_FLAGS "-DLASTFM_FINGERPRINT_OHAI_QMAKE"  ) 
+
+install(TARGETS lastfm_fingerprint
+  RUNTIME DESTINATION bin
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+)
