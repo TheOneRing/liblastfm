@@ -5,9 +5,9 @@
 # - Try to find the LIBFFTW3 library
 # Once done this will define
 #
-#  LIBFFTW3_FOUND
-#  LIBFFTW3_INCLUDE_DIR
-#  LIBFFTW3_LIBRARY       The libfftw3 librarys
+#  LIBFFTW3_FOUND            Set to TRUE if LIBFFTW3 librarys and include directory is found
+#  LIBFFTW3_INCLUDE_DIR      The libfftw3 include directory
+#  LIBFFTW3_LIBRARY          The libfftw3 librarys
 
 if(NOT LIBFFTW3_PRECISION)
   message(STATUS "Searching for LIBFFTW3, using default precision float")
@@ -29,6 +29,7 @@ if(LIBFFTW3_PRECISION STREQUAL LDOUBLE)
 endif(LIBFFTW3_PRECISION STREQUAL LDOUBLE)
 
 find_library(LIBFFTW3_LIBRARY NAMES fftw3${LIBFFTW3_PRECISION_SUFFIX} libfftw3${LIBFFTW3_PRECISION_SUFFIX}-3 fftw3${LIBFFTW3_PRECISION_SUFFIX}-3)
+
 if(FIND_LIBFFTW3_VERBOSE)
   message(STATUS 
   "LIBFFTW3_PRECISION ${LIBFFTW3_PRECISION}, searched for fftw3${LIBFFTW3_PRECISION_SUFFIX} libfftw3${LIBFFTW3_PRECISION_SUFFIX}-3 fftw3${LIBFFTW3_PRECISION_SUFFIX}-3
