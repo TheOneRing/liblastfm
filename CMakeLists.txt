@@ -18,8 +18,6 @@ add_subdirectory(src)
 # Optionally build the fingerprint library
 option(BUILD_FINGERPRINT "Build the lastfm-fingerprint library" ON)
 find_package( LibSamplerate )
-
-set(LIBFFTW3_USE_FLOAT True)
 find_package(LibFFTW3)
 
 # Tests
