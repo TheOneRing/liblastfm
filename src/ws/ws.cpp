@@ -28,11 +28,6 @@
 #include <QUrl>
 static QNetworkAccessManager* nam = 0;
 
-namespace lastfm {
-  namespace ws {
-    LASTFM_DLLEXPORT Error last_parse_error = NoError;
-  }
-}
 
 static inline QString host()
 {
@@ -140,8 +135,6 @@ lastfm::ws::post( QMap<QString, QString> params )
 QByteArray
 lastfm::ws::parse( QNetworkReply* reply ) throw( ParseError )
 {
-    last_parse_error = NoError;
-
     try
     {
         QByteArray data = reply->readAll();
@@ -189,8 +182,18 @@ lastfm::ws::parse( QNetworkReply* reply ) throw( ParseError )
     }
     catch (Error e)
     {
-        last_parse_error = e;
-        return QByteArray();
+        switch (e)
+        {
+            case OperationFailed:
+            case InvalidApiKey:
+            case InvalidSessionKey:
+                // NOTE will never be received during the LoginDialog stage
+                // since that happens before this slot is registered with
+                // QMetaObject in App::App(). Neat :)
+                QMetaObject::invokeMethod( qApp, "onWsError", Q_ARG( lastfm::ws::Error, e ) );
+            default:
+                throw ParseError(e);
+        }
     }
 
     // bit dodgy, but prolly for the best
